@@ -17,7 +17,7 @@ public:
 
     void update(float deltaTime) override;
     void draw(sf::RenderWindow& window) override;
-    void move(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, const sf::RenderWindow& window);
+    void move(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, const sf::RenderWindow& window, sf::Time& deltaTime);
 };
 
 #endif // PLAYER_H

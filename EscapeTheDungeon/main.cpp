@@ -17,7 +17,7 @@ std::unordered_map<sf::Keyboard::Key, bool> keyStates = {
 };
 
 
-//void checkCol(sf::RenderWindow* window, sf::RectangleShape* playerRect, std::vector<Enemy*>* enemies);
+bool checkCol(sf::RenderWindow* window, sf::RectangleShape* playerRect, sf::RectangleShape* enemyRect, std::vector<Enemy*>* enemies);
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Escape The Dungeon");
@@ -33,7 +33,12 @@ int main() {
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 400), 3.0f));
     Player* player = new Player(playerRect, sf::Vector2f(200, 300), 10.0f);
 
+    float speed = 2.0f;
+    sf::Clock clock;
+
     while (window.isOpen()) {
+        sf::Time deltaTime = clock.restart();
+
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
@@ -41,7 +46,7 @@ int main() {
             }
             if (event.type == sf::Event::KeyPressed) {
                 keyStates[event.key.code] = true;
-                player->move(keyStates, window);
+                player->move(keyStates, window, deltaTime);
             }
             if (event.type == sf::Event::KeyReleased) {
                 keyStates[event.key.code] = false;
@@ -63,8 +68,10 @@ int main() {
     return 0;
 }
 
-//void checkCol(sf::RenderWindow* window, sf::RectangleShape* playerRect, std::vector<Enemy*>* enemies) {
-//    for (auto& enemy : enemies) {
-//        if (playerRect->getPosition().x == enemy)
-//    }
-//}
+bool checkCol(sf::RenderWindow* window, sf::RectangleShape* playerRect, sf::RectangleShape* enemyRect, std::vector<Enemy*>* enemies) {
+    for (auto& enemy : *enemies) {
+        if (playerRect->getGlobalBounds().intersects(enemyRect->getGlobalBounds())) {
+
+        }
+    }
+}
