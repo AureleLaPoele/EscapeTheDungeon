@@ -17,7 +17,7 @@ std::unordered_map<sf::Keyboard::Key, bool> keyStates = {
 };
 
 
-bool checkCol(sf::RenderWindow* window, sf::RectangleShape* playerRect, sf::RectangleShape* enemyRect, std::vector<Enemy*>* enemies);
+bool checkCol(sf::RenderWindow* window, sf::RectangleShape* playerRect, std::vector<Enemy*>* enemies);
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Escape The Dungeon");
@@ -31,8 +31,9 @@ int main() {
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 200), 3.0f));
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 300), 3.0f));
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 400), 3.0f));
-    Player* player = new Player(playerRect, sf::Vector2f(200, 300), 10.0f);
+    Player* player = new Player(playerRect, sf::Vector2f(200, 300), 300.0f);
 
+    enemies[0]->enemyRect;
     float speed = 2.0f;
     sf::Clock clock;
 
@@ -46,12 +47,14 @@ int main() {
             }
             if (event.type == sf::Event::KeyPressed) {
                 keyStates[event.key.code] = true;
-                player->move(keyStates, window, deltaTime);
             }
             if (event.type == sf::Event::KeyReleased) {
                 keyStates[event.key.code] = false;
             }
         }
+
+        /*checkCol(window, playerRect, enemies);*/
+        player->move(keyStates, window, deltaTime);
 
         window.clear();
         for (auto& enemy : enemies) {
@@ -68,10 +71,13 @@ int main() {
     return 0;
 }
 
-bool checkCol(sf::RenderWindow* window, sf::RectangleShape* playerRect, sf::RectangleShape* enemyRect, std::vector<Enemy*>* enemies) {
-    for (auto& enemy : *enemies) {
+bool checkCol(sf::RenderWindow* window, sf::RectangleShape* playerRect, std::vector<Enemy*>* enemies) {
+    /*for (auto& enemy : *enemies) {
         if (playerRect->getGlobalBounds().intersects(enemyRect->getGlobalBounds())) {
-
+            std::cout << "Collision entre un enemy et le player\n";
         }
-    }
+        std::cout << enemy << std::endl;
+    }*/
+
+    std::cout << "test\n";
 }

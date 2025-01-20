@@ -17,10 +17,17 @@ void Enemy::draw(sf::RenderWindow& window) {
     window.draw(enemyRect);
 }
 
+void Enemy::ChaserEnemyPattern(const sf::RenderWindow& window, Player& player) {
+
+}
+
+void Enemy::PatrollingEnemyPattern(const sf::RenderWindow& window) {
+
+}
+
 void Enemy::move(const sf::RenderWindow& window) {
     float dx = -0.01f, dy = 0.0f;
 
-    // Diagonal correction pour éviter un déplacement plus rapide en diagonale
     if (dx != 0 && dy != 0) {
         dx *= 0.7071f;
         dy *= 0.7071f;

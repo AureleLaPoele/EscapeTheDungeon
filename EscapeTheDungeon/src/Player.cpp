@@ -9,7 +9,6 @@ Player::~Player() {
 }
 
 void Player::update(float deltaTime) {
-    // Cette fonction peut être utilisée pour gérer la mise à jour du joueur à chaque frame
 }
 
 void Player::draw(sf::RenderWindow& window) {
@@ -20,32 +19,26 @@ void Player::move(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, 
     float dx = 0.0f, dy = 0.0f;
 
     if (keyStates.at(sf::Keyboard::Z)) {
-        playerRect.move(0, -speed * deltaTime.asSeconds());
         dy -= speed;
-        std::cout << "Haut\n";
+        //std::cout << "Haut\n";
     }
     if (keyStates.at(sf::Keyboard::S)) {
-        playerRect.move(0, speed * deltaTime.asSeconds());
         dy += speed;
-        std::cout << "Bas\n";
+        //std::cout << "Bas\n";
     }
     if (keyStates.at(sf::Keyboard::Q)) {
-        playerRect.move(-speed * deltaTime.asSeconds(), 0);
         dx -= speed;
-        std::cout << "Gauche\n";
+        //std::cout << "Gauche\n";
     }
     if (keyStates.at(sf::Keyboard::D)) {
-
-        playerRect.move(speed * deltaTime.asSeconds(), 0);
         dx += speed;
-        std::cout << "Droite\n";
+        //std::cout << "Droite\n";
     }
 
-    // Diagonal correction pour éviter un déplacement plus rapide en diagonale
     if (dx != 0 && dy != 0) {
         dx *= 0.7071f;
         dy *= 0.7071f;
     }
 
-    //playerRect.move(dx, dy);
+    playerRect.move(dx * deltaTime.asSeconds(), dy * deltaTime.asSeconds());
 }
