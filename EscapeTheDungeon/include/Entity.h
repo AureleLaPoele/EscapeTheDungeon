@@ -5,7 +5,8 @@
 
 class Entity {
 public:
-    virtual void update(float deltaTime) = 0;  // Méthode virtuelle pure
+
+    virtual void updateTemp(float deltaTime) = 0;  // Méthode virtuelle pure
     virtual void draw(sf::RenderWindow& window) = 0;  // Méthode virtuelle pure
     virtual ~Entity() {}
 };

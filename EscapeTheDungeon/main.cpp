@@ -17,13 +17,14 @@ std::unordered_map<sf::Keyboard::Key, bool> keyStates = {
 };
 
 
-bool checkCol(sf::RenderWindow* window, sf::RectangleShape* playerRect, std::vector<Enemy*>* enemies);
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Escape The Dungeon");
 
     sf::RectangleShape playerRect(sf::Vector2f(50, 50));
     playerRect.setFillColor(sf::Color::Green);
+    sf::RectangleShape playerSword(sf::Vector2f(50, 5));
+    playerSword.rotate(-90);
     sf::RectangleShape enemyRect(sf::Vector2f(50, 50));
     enemyRect.setFillColor(sf::Color::Red);
 
@@ -31,9 +32,9 @@ int main() {
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 200), 3.0f));
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 300), 3.0f));
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 400), 3.0f));
-    Player* player = new Player(playerRect, sf::Vector2f(200, 300), 300.0f);
+    Player* player = new Player(100, playerRect, playerSword, sf::Vector2f(200, 300), 300.0f);
+    Enemy* chaser = new Enemy(enemyRect, sf::Vector2f(100, 200), 1.0f);
 
-    enemies[0]->enemyRect;
     float speed = 2.0f;
     sf::Clock clock;
 
@@ -53,15 +54,25 @@ int main() {
             }
         }
 
-        /*checkCol(window, playerRect, enemies);*/
-        player->move(keyStates, window, deltaTime);
+        player->update(keyStates, window, deltaTime);
+        for (auto& enemy : enemies) {
+            if (player->checkCol(window, enemy->enemyRect)) {
+                player->hp -= 25;
+                player->playerRect.move(-25, 0);
+            }
+        }
+        if (player->hp <= 0) {
+            return 0;
+        }
 
         window.clear();
         for (auto& enemy : enemies) {
-            enemy->draw(window);
             enemy->move(window);
+            enemy->draw(window);
         }
+        chaser->ChaserEnemyPattern(playerRect.getPosition().x, playerRect.getPosition().y);
         player->draw(window);
+        chaser->draw(window);
         window.display();
     }
     for (auto& enemy : enemies) {
@@ -69,15 +80,4 @@ int main() {
     }
     delete player;
     return 0;
-}
-
-bool checkCol(sf::RenderWindow* window, sf::RectangleShape* playerRect, std::vector<Enemy*>* enemies) {
-    /*for (auto& enemy : *enemies) {
-        if (playerRect->getGlobalBounds().intersects(enemyRect->getGlobalBounds())) {
-            std::cout << "Collision entre un enemy et le player\n";
-        }
-        std::cout << enemy << std::endl;
-    }*/
-
-    std::cout << "test\n";
 }

@@ -4,20 +4,24 @@
 #include "Entity.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <time.h>
 #include <unordered_map>
 
 class Player : public Entity {
 public:
+    int hp;
     sf::RectangleShape playerRect;
+    sf::RectangleShape playerSword;
     sf::Vector2f pos;
     float speed;
 
-    Player(sf::RectangleShape pR, sf::Vector2f p, float s);
+    Player(int hp, sf::RectangleShape pR, sf::RectangleShape pS, sf::Vector2f p, float s);
     ~Player();
 
-    void update(float deltaTime) override;
+    void updateTemp(float deltaTime) override;
+    void update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, sf::RenderWindow& window, sf::Time& deltaTime);
     void draw(sf::RenderWindow& window) override;
-    void move(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, const sf::RenderWindow& window, sf::Time& deltaTime);
+    bool checkCol(sf::RenderWindow& window, sf::RectangleShape& enemyRect);
 };
 
 #endif // PLAYER_H

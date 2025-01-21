@@ -15,9 +15,9 @@ public:
     Enemy(sf::RectangleShape pR, sf::Vector2f p, float s);
     ~Enemy();
 
-    void update(float deltaTime) override;
+    void updateTemp(float deltaTime) override;
     void draw(sf::RenderWindow& window) override;
-    void ChaserEnemyPattern(const sf::RenderWindow& window, Player& player);
+    void ChaserEnemyPattern(float posx, float posy);
     void PatrollingEnemyPattern(const sf::RenderWindow& window);
     void move(const sf::RenderWindow& window);
 };
