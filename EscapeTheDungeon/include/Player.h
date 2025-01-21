@@ -19,9 +19,11 @@ public:
     ~Player();
 
     void updateTemp(float deltaTime) override;
-    void update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, sf::RenderWindow& window, sf::Time& deltaTime);
+    void update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, sf::RenderWindow& window, sf::Time& deltaTime, bool speedPotion);
     void draw(sf::RenderWindow& window) override;
-    bool checkCol(sf::RenderWindow& window, sf::RectangleShape& enemyRect);
+    bool checkColEnemy(sf::RectangleShape& enemyRect);
+    bool checkColItem(sf::RectangleShape& itemRect);
+
 };
 
 #endif // PLAYER_H

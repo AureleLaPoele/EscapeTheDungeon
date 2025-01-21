@@ -20,21 +20,18 @@ void Enemy::draw(sf::RenderWindow& window) {
 void Enemy::ChaserEnemyPattern(float posx, float posy) {
     float dx = 0.0f;
     float dy = 0.0f;
-    std::cout << "posx du player : " << posx << std::endl;
-    std::cout << "posy du player : " << posy << std::endl;
-    std::cout << "posx de l'enemy : " << enemyRect.getPosition().x << std::endl;
-    std::cout << "posy de l'enemy : " << enemyRect.getPosition().y << std::endl;
+    float speed = 0.01f;
     if (posx <= enemyRect.getPosition().x) {
-        dx = -0.05f;
+        dx = -speed;
     }
     if (posx >= enemyRect.getPosition().x) {
-        dx = 0.05f;
+        dx = speed;
     }
     if (posy <= enemyRect.getPosition().y) {
-        dy = -0.05f;
+        dy = -speed;
     }
     if (posy >= enemyRect.getPosition().y) {
-        dy = 0.05f;
+        dy = speed;
     }
     enemyRect.move(dx, dy);
 }

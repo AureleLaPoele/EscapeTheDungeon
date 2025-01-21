@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Enemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|solutionrelative:src\\Enemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|solutionrelative:include\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|solutionrelative:src\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -23,12 +15,28 @@
       "RelativeMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|solutionrelative:src\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Item.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|solutionrelative:src\\Item.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Item.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|solutionrelative:include\\Item.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|solutionrelative:include\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|solutionrelative:include\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Enemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|solutionrelative:src\\Enemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B908A9F7-031C-4497-AFB4-2CF5948C1E65}|EscapeTheDungeon.vcxproj|solutionrelative:src\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,17 +46,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACMAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAcwE4AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-17T08:17:35.67Z",
               "IsPinned": true,
@@ -56,33 +64,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Enemy.h",
-              "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Enemy.h",
-              "RelativeDocumentMoniker": "include\\Enemy.h",
-              "ToolTip": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Enemy.h",
-              "RelativeToolTip": "include\\Enemy.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-17T11:30:39.76Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Enemy.cpp",
-              "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Enemy.cpp",
-              "RelativeDocumentMoniker": "src\\Enemy.cpp",
-              "ToolTip": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Enemy.cpp",
-              "RelativeToolTip": "src\\Enemy.cpp",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABcAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-17T11:30:26.991Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Entity.h",
+              "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Entity.h",
+              "RelativeDocumentMoniker": "include\\Entity.h",
+              "ToolTip": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Entity.h",
+              "RelativeToolTip": "include\\Entity.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-17T10:13:14.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Entity.cpp",
               "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Entity.cpp",
               "RelativeDocumentMoniker": "src\\Entity.cpp",
@@ -95,40 +90,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Entity.h",
-              "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Entity.h",
-              "RelativeDocumentMoniker": "include\\Entity.h",
-              "ToolTip": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Entity.h",
-              "RelativeToolTip": "include\\Entity.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAHAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "Item.h",
+              "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Item.h",
+              "RelativeDocumentMoniker": "include\\Item.h",
+              "ToolTip": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Item.h",
+              "RelativeToolTip": "include\\Item.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-17T10:13:14.027Z"
+              "WhenOpened": "2025-01-21T14:22:15.271Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Item.cpp",
+              "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Item.cpp",
+              "RelativeDocumentMoniker": "src\\Item.cpp",
+              "ToolTip": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Item.cpp",
+              "RelativeToolTip": "src\\Item.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-21T14:21:53.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Player.h",
               "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Player.h",
               "RelativeDocumentMoniker": "include\\Player.h",
               "ToolTip": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Player.h",
               "RelativeToolTip": "include\\Player.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAEwBUAAACNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-17T10:13:06.652Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Player.cpp",
               "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Player.cpp",
               "RelativeDocumentMoniker": "src\\Player.cpp",
               "ToolTip": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Player.cpp",
               "RelativeToolTip": "src\\Player.cpp",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAmwDQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-17T10:17:01.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Enemy.h",
+              "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Enemy.h",
+              "RelativeDocumentMoniker": "include\\Enemy.h",
+              "ToolTip": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\include\\Enemy.h",
+              "RelativeToolTip": "include\\Enemy.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-17T11:30:39.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Enemy.cpp",
+              "DocumentMoniker": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Enemy.cpp",
+              "RelativeDocumentMoniker": "src\\Enemy.cpp",
+              "ToolTip": "C:\\Users\\agodin\\Documents\\GitHub\\EscapeTheDungeon\\EscapeTheDungeon\\src\\Enemy.cpp",
+              "RelativeToolTip": "src\\Enemy.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-17T11:30:26.991Z",
               "EditorCaption": ""
             }
           ]

@@ -1,5 +1,6 @@
 #include "../include/Player.h"
 #include "../include/Enemy.h"
+#include "../include/Item.h"
 
 Player::Player(int hp, sf::RectangleShape pR, sf::RectangleShape pS, sf::Vector2f p, float s) : hp(hp), playerRect(pR), playerSword(pS), pos(p), speed(s) {
     playerRect.setPosition(pos.x, pos.y);
@@ -16,24 +17,20 @@ void Player::updateTemp(float deltaTime) {
 
 }
 
-void Player::update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, sf::RenderWindow& window, sf::Time& deltaTime) {
+void Player::update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, sf::RenderWindow& window, sf::Time& deltaTime, bool speedPotion) {
     float dx = 0.0f, dy = 0.0f;
 
     if (keyStates.at(sf::Keyboard::Z)) {
         dy -= speed;
-        //std::cout << "Haut\n";
     }
     if (keyStates.at(sf::Keyboard::S)) {
         dy += speed;
-        //std::cout << "Bas\n";
     }
     if (keyStates.at(sf::Keyboard::Q)) {
         dx -= speed;
-        //std::cout << "Gauche\n";
     }
     if (keyStates.at(sf::Keyboard::D)) {
         dx += speed;
-        //std::cout << "Droite\n";
     }
     if (keyStates.at(sf::Keyboard::Space)) {
         std::cout << "Space\n";
@@ -51,6 +48,11 @@ void Player::update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates
         dy *= 0.7071f;
     }
 
+    if (speedPotion) {
+        dx *= 3;
+        dy *= 3;
+    }
+
     pos.x += dx * deltaTime.asSeconds();
     pos.y += dy * deltaTime.asSeconds();
 
@@ -64,9 +66,9 @@ void Player::draw(sf::RenderWindow& window) {
     window.draw(playerRect);
 }
 
-bool Player::checkCol(sf::RenderWindow& window, sf::RectangleShape& enemyRect) {
+bool Player::checkColEnemy(sf::RectangleShape& enemyRect) {
     if (playerRect.getGlobalBounds().intersects(enemyRect.getGlobalBounds())) {
-        std::cout << "Collision avec enemy\n";
+        std::cout << "Collision avec un enemy\n";
         return true;
     }
     else {
@@ -74,3 +76,12 @@ bool Player::checkCol(sf::RenderWindow& window, sf::RectangleShape& enemyRect) {
     }
 }
 
+bool Player::checkColItem(sf::RectangleShape& itemRect) {
+    if (playerRect.getGlobalBounds().intersects(itemRect.getGlobalBounds())) {
+        std::cout << "Collision avec un objet\n";
+        return true;
+    }
+    else {
+        return false;
+    }
+}
