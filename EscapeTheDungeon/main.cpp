@@ -33,7 +33,7 @@ int main() {
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 300), 3.0f));
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 400), 3.0f));
     Player* player = new Player(100, playerRect, playerSword, sf::Vector2f(200, 300), 300.0f);
-    Enemy* chaser = new Enemy(enemyRect, sf::Vector2f(100, 200), 1.0f);
+    Enemy* chaser = new Enemy(enemyRect, sf::Vector2f(300, 200), 1.0f);
 
     float speed = 2.0f;
     sf::Clock clock;
@@ -70,7 +70,7 @@ int main() {
             enemy->move(window);
             enemy->draw(window);
         }
-        chaser->ChaserEnemyPattern(playerRect.getPosition().x, playerRect.getPosition().y);
+        chaser->ChaserEnemyPattern(player->pos.x, player->pos.y);
         player->draw(window);
         chaser->draw(window);
         window.display();

@@ -50,6 +50,10 @@ void Player::update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates
         dx *= 0.7071f;
         dy *= 0.7071f;
     }
+
+    pos.x += dx * deltaTime.asSeconds();
+    pos.y += dy * deltaTime.asSeconds();
+
     playerRect.move(dx * deltaTime.asSeconds(), dy * deltaTime.asSeconds());
     playerSword.move(dx * deltaTime.asSeconds(), dy * deltaTime.asSeconds());
 }

@@ -24,17 +24,17 @@ void Enemy::ChaserEnemyPattern(float posx, float posy) {
     std::cout << "posy du player : " << posy << std::endl;
     std::cout << "posx de l'enemy : " << enemyRect.getPosition().x << std::endl;
     std::cout << "posy de l'enemy : " << enemyRect.getPosition().y << std::endl;
-    //if (enemyRect.getPosition().x > posx) {
-    //    dx = 0.01f;
-    //}
-    if (enemyRect.getPosition().x < posx) {
-        dx = -0.01f;
+    if (posx <= enemyRect.getPosition().x) {
+        dx = -0.05f;
     }
-    //if (enemyRect.getPosition().y > posy) {
-    //    dy = 0.01f;
-    //}
-    if (enemyRect.getPosition().y < posx) {
-        dy = -0.01f;
+    if (posx >= enemyRect.getPosition().x) {
+        dx = 0.05f;
+    }
+    if (posy <= enemyRect.getPosition().y) {
+        dy = -0.05f;
+    }
+    if (posy >= enemyRect.getPosition().y) {
+        dy = 0.05f;
     }
     enemyRect.move(dx, dy);
 }
