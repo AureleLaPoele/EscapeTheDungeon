@@ -80,10 +80,10 @@ int main() {
 
         window.clear();
         for (auto& enemy : enemies) {
-            //enemy->move(window);
+            enemy->move(window);
             enemy->draw(window);
         }
-        //chaser->ChaserEnemyPattern(player->pos.x, player->pos.y);
+        chaser->ChaserEnemyPattern(player->pos.x, player->pos.y);
         player->draw(window);
         chaser->draw(window);
         item->draw(window);
