@@ -20,6 +20,9 @@ void Player::updateTemp(float deltaTime) {
 void Player::update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, sf::RenderWindow& window, sf::Time& deltaTime, bool speedPotion) {
     float dx = 0.0f, dy = 0.0f;
 
+    if (keyStates.at(sf::Keyboard::Escape)) {
+        window.close();
+    }
     if (keyStates.at(sf::Keyboard::Z)) {
         dy -= speed;
     }
@@ -49,8 +52,8 @@ void Player::update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates
     }
 
     if (speedPotion) {
-        dx *= 3;
-        dy *= 3;
+        dx *= 2;
+        dy *= 2;
     }
 
     pos.x += dx * deltaTime.asSeconds();
@@ -66,9 +69,32 @@ void Player::draw(sf::RenderWindow& window) {
     window.draw(playerRect);
 }
 
-bool Player::checkColEnemy(sf::RectangleShape& enemyRect) {
+bool Player::checkColEnemy(sf::RectangleShape& enemyRect, int& hp, sf::RectangleShape& playerRect, sf::RectangleShape& playerSword) {
     if (playerRect.getGlobalBounds().intersects(enemyRect.getGlobalBounds())) {
-        std::cout << "Collision avec un enemy\n";
+        while (true) {
+            float distLeft = playerRect.getPosition().x + playerRect.getSize().x - enemyRect.getPosition().x;
+            float distRight = enemyRect.getPosition().x + enemyRect.getSize().x - playerRect.getPosition().x;
+            float distTop = playerRect.getPosition().y + playerRect.getSize().y - enemyRect.getPosition().y;
+            float distBottom = enemyRect.getPosition().y + enemyRect.getSize().y - playerRect.getPosition().y;
+            if (distLeft < distRight && distLeft < distTop && distLeft < distBottom) {
+                playerRect.move(-100, 0);
+                playerSword.move(-100, 0);
+            }
+            else if (distRight < distLeft && distRight < distTop && distRight < distBottom) {
+                playerRect.move(100, 0);
+                playerSword.move(100, 0);
+            }
+            else if (distTop < distLeft && distTop < distRight && distTop < distBottom) {
+                playerRect.move(0, -100);
+                playerSword.move(0, -100);
+            }
+            else if (distBottom < distLeft && distBottom < distRight && distBottom < distTop) {
+                playerRect.move(0, 100);
+                playerSword.move(0, 100);
+            }
+            break;
+        }
+        hp -= 25;
         return true;
     }
     else {

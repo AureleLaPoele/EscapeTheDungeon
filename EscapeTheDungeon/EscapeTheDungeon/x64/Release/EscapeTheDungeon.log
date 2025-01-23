@@ -1,7 +1,11 @@
 ﻿  main.cpp
-  Generating code
-  2 of 333 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  EscapeTheDungeon.vcxproj -> C:\Users\aurel\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\x64\Release\EscapeTheDungeon.exe
+  Enemy.cpp
+  Entity.cpp
+  Item.cpp
+  Player.cpp
+  Génération de code en cours
+  330 of 334 functions (98.8%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Fin de la génération du code
+  EscapeTheDungeon.vcxproj -> C:\Users\agodin\Desktop\EscapeTheDungeon\EscapeTheDungeon\x64\Release\EscapeTheDungeon.exe
