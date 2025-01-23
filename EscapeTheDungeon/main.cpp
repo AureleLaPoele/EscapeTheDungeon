@@ -6,6 +6,7 @@
 #include "include/Player.h"
 #include "include/Enemy.h"
 #include "include/Item.h"
+#include "include/Sword.h"
 
 const int WIDTH = 1024;
 const int HEIGHT = 768;
@@ -15,8 +16,6 @@ WORD GetTextAttribute() {
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &info);
     return info.wAttributes;
 }
-
-
 
 std::unordered_map<sf::Keyboard::Key, bool> keyStates = {
     {sf::Keyboard::Escape, false},
@@ -34,8 +33,8 @@ int main() {
 
     sf::RectangleShape playerRect(sf::Vector2f(50, 50));
     playerRect.setFillColor(sf::Color::Green);
-    sf::RectangleShape playerSword(sf::Vector2f(50, 5));
-    playerSword.rotate(-90);
+    sf::RectangleShape swordRect(sf::Vector2f(50, 5));
+    swordRect.rotate(-90);
     sf::RectangleShape enemyRect(sf::Vector2f(50, 50));
     enemyRect.setFillColor(sf::Color::Red);
     sf::RectangleShape itemRect(sf::Vector2f(50, 50));
@@ -46,7 +45,7 @@ int main() {
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 300), 3.0f));
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 400), 3.0f));
     Enemy* chaser = new Enemy(enemyRect, sf::Vector2f(300, 200), 1.0f);
-    Player* player = new Player(100, playerRect, playerSword, sf::Vector2f(200, 300), 300.0f);
+    Player* player = new Player(100, playerRect, swordRect, sf::Vector2f(200, 300), 300.0f);
     Item* speedPotion = new Item(itemRect, sf::Vector2f(200, 200), "speedPotion");
 
     float speed = 2.0f;
@@ -92,7 +91,7 @@ int main() {
         for (auto& enemy : enemies) {
             /*enemy->move(window);*/
             enemy->draw(window);
-            if (player->checkColEnemy(enemy->enemyRect, player->hp, player->playerRect, player->playerSword)) {
+            if (player->checkColEnemy(enemy->enemyRect, player->hp, player->playerRect)) {
                 std::cout << "Le joueur a ";
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0x04);
                 std::cout << player->hp;
@@ -119,49 +118,5 @@ int main() {
     return 0;
 }
 
-
-
-//int main() {
-//    using namespace std::chrono;
-//
-//    // Durée du cooldown en secondes
-//    const float cooldownTime = 5.0f;
-//
-//    // Moment de la dernière action, initialisé à un moment passé
-//    steady_clock::time_point lastActionTime = steady_clock::now() - seconds(int(cooldownTime));
-//
-//    while (true) {
-//        // Demander à l'utilisateur d'appuyer sur une touche pour effectuer l'action
-//        std::cout << "Appuie sur 'Enter' pour effectuer une action (ou 'q' pour quitter)..." << std::endl;
-//
-//        char input;
-//        std::cin >> input;
-//
-//        if (input == 'q') {
-//            break; // Quitte la boucle si l'utilisateur appuie sur 'q'
-//        }
-//
-//        steady_clock::time_point currentTime = steady_clock::now();
-//
-//        // Calculer le temps écoulé depuis la dernière action
-//        float elapsedTime = duration<float>(currentTime - lastActionTime).count();
-//
-//        if (elapsedTime >= cooldownTime) {
-//            // Si le cooldown est terminé, on effectue l'action
-//            std::cout << "Action effectuée !" << std::endl;
-//            // Met à jour le moment de la dernière action
-//            lastActionTime = currentTime;
-//        }
-//        else {
-//            // Si le cooldown n'est pas terminé, informer l'utilisateur
-//            std::cout << "Attends encore " << (cooldownTime - elapsedTime) << " secondes avant de refaire l'action." << std::endl;
-//        }
-//
-//        // Attendre un peu pour éviter une boucle trop rapide (facultatif)
-//        std::this_thread::sleep_for(milliseconds(100));
-//    }
-//
-//    return 0;
-//}
 
 

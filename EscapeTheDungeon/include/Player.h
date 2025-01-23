@@ -11,17 +11,17 @@ class Player : public Entity {
 public:
     int hp;
     sf::RectangleShape playerRect;
-    sf::RectangleShape playerSword;
+    sf::RectangleShape swordRect;
     sf::Vector2f pos;
     float speed;
 
-    Player(int hp, sf::RectangleShape pR, sf::RectangleShape pS, sf::Vector2f p, float s);
+    Player(int hp, sf::RectangleShape pR, sf::RectangleShape sR,  sf::Vector2f p, float s);
     ~Player();
 
     void updateTemp(float deltaTime) override;
-    void update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, sf::RenderWindow& window, sf::Time& deltaTime, bool speedPotion);
     void draw(sf::RenderWindow& window) override;
-    bool checkColEnemy(sf::RectangleShape& enemyRect, int& hp, sf::RectangleShape& playerRect, sf::RectangleShape& playerSword);
+    void update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, sf::RenderWindow& window, sf::Time& deltaTime, bool speedPotion);
+    bool checkColEnemy(sf::RectangleShape& enemyRect, int& hp, sf::RectangleShape& playerRect);
     bool checkColItem(sf::RectangleShape& itemRect);
 
 };

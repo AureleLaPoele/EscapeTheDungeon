@@ -2,11 +2,11 @@
 #include "../include/Enemy.h"
 #include "../include/Item.h"
 
-Player::Player(int hp, sf::RectangleShape pR, sf::RectangleShape pS, sf::Vector2f p, float s) : hp(hp), playerRect(pR), playerSword(pS), pos(p), speed(s) {
+Player::Player(int hp, sf::RectangleShape pR, sf::RectangleShape sR, sf::Vector2f p, float s) : hp(hp), playerRect(pR), swordRect(sR), pos(p), speed(s) {
     playerRect.setPosition(pos.x, pos.y);
     float posx = playerRect.getPosition().x + 25.0f;
     float posy = playerRect.getPosition().y + 25.0f;
-    playerSword.setPosition(posx, posy);
+    swordRect.setPosition(posx, posy);
 }
 
 Player::~Player() {
@@ -35,15 +35,9 @@ void Player::update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates
     if (keyStates.at(sf::Keyboard::D)) {
         dx += speed;
     }
-    if (keyStates.at(sf::Keyboard::Space)) {
+    if (keyStates.at(sf::Keyboard::Space) && timeSinceLastStrike >= strikeCooldown) {
         std::cout << "Space\n";
-        //for (int i = 0; i < 180; i++) {
-        //    playerSword.rotate(1);
-        //    sf::sleep(sf::milliseconds(1));
-        //    Player::draw(window);
-        //    window.draw(playerSword);
-        //    std::cout << i << std::endl;
-        //}
+        timeSinceLastStrike = 0.0f;
     }
 
     if (dx != 0 && dy != 0) {
@@ -60,16 +54,16 @@ void Player::update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates
     pos.y += dy * deltaTime.asSeconds();
 
     playerRect.move(dx * deltaTime.asSeconds(), dy * deltaTime.asSeconds());
-    playerSword.move(dx * deltaTime.asSeconds(), dy * deltaTime.asSeconds());
+    swordRect.move(dx * deltaTime.asSeconds(), dy * deltaTime.asSeconds());
 }
 
 
 void Player::draw(sf::RenderWindow& window) {
-    window.draw(playerSword);
+    window.draw(swordRect);
     window.draw(playerRect);
 }
 
-bool Player::checkColEnemy(sf::RectangleShape& enemyRect, int& hp, sf::RectangleShape& playerRect, sf::RectangleShape& playerSword) {
+bool Player::checkColEnemy(sf::RectangleShape& enemyRect, int& hp, sf::RectangleShape& playerRect) {
     if (playerRect.getGlobalBounds().intersects(enemyRect.getGlobalBounds())) {
         while (true) {
             float distLeft = playerRect.getPosition().x + playerRect.getSize().x - enemyRect.getPosition().x;
@@ -78,19 +72,19 @@ bool Player::checkColEnemy(sf::RectangleShape& enemyRect, int& hp, sf::Rectangle
             float distBottom = enemyRect.getPosition().y + enemyRect.getSize().y - playerRect.getPosition().y;
             if (distLeft < distRight && distLeft < distTop && distLeft < distBottom) {
                 playerRect.move(-100, 0);
-                playerSword.move(-100, 0);
+                swordRect.move(-100, 0);
             }
             else if (distRight < distLeft && distRight < distTop && distRight < distBottom) {
                 playerRect.move(100, 0);
-                playerSword.move(100, 0);
+                swordRect.move(100, 0);
             }
             else if (distTop < distLeft && distTop < distRight && distTop < distBottom) {
                 playerRect.move(0, -100);
-                playerSword.move(0, -100);
+                swordRect.move(0, -100);
             }
             else if (distBottom < distLeft && distBottom < distRight && distBottom < distTop) {
                 playerRect.move(0, 100);
-                playerSword.move(0, 100);
+                swordRect.move(0, 100);
             }
             break;
         }

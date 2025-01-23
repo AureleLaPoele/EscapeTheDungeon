@@ -1,0 +1,3 @@
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\EscapeTheDungeon\x64\Release\EscapeTheDungeon.vcxproj.MdMergeInputs.cache
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\EscapeTheDungeon\x64\Release\EscapeTheDungeon.vcxproj.cppwinrt_plat.cache
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\EscapeTheDungeon\x64\Release\EscapeTheDungeon.vcxproj.cppwinrt_comp.cache
