@@ -14,6 +14,8 @@ public:
     sf::RectangleShape swordRect;
     sf::Vector2f pos;
     float speed;
+    float strikeCooldown;
+    float timeSinceLastStrike;
 
     Player(int hp, sf::RectangleShape pR, sf::RectangleShape sR,  sf::Vector2f p, float s);
     ~Player();
