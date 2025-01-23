@@ -31,4 +31,5 @@
 *.out
 *.app
 
+# Ignorer le .vs
 .vs/
