@@ -1,15 +1,23 @@
 #include <SFML/Graphics.hpp>
 #include <fstream>
+#include <iostream>
 #include <vector>
 #include <string>
 #include <stdexcept>
 
+enum class CollisionDirection {
+    None,
+    Left,
+    Right,
+    Top,
+    Bottom
+};
+
 class Map {
-private:
+public:
     std::vector<std::vector<int>> grid;
     int tileSize;
 
-public:
     Map(const std::string& filename, int tileSize) : tileSize(tileSize) {
         loadFromFile(filename);
     }
@@ -45,7 +53,7 @@ public:
         }
     }
 
-    bool isColliding(const sf::FloatRect& bounds) const {
+    CollisionDirection getCollisionDirection(const sf::FloatRect& bounds) const {
         int leftTile = bounds.left / tileSize;
         int rightTile = (bounds.left + bounds.width) / tileSize;
         int topTile = bounds.top / tileSize;
@@ -56,10 +64,13 @@ public:
                 if (y >= 0 && y < static_cast<int>(grid.size()) &&
                     x >= 0 && x < static_cast<int>(grid[y].size()) &&
                     grid[y][x] == 1) {
-                    return true;
+                    if (bounds.left < x * tileSize) return CollisionDirection::Right;
+                    if (bounds.left + bounds.width > (x + 1) * tileSize) return CollisionDirection::Left;
+                    if (bounds.top < y * tileSize) return CollisionDirection::Bottom;
+                    if (bounds.top + bounds.height > (y + 1) * tileSize) return CollisionDirection::Top;
                 }
             }
         }
-        return false;
+        return CollisionDirection::None;
     }
 };

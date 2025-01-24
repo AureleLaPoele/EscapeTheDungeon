@@ -34,12 +34,10 @@ int main() {
     WORD oldAttr = GetTextAttribute();
 
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Escape The Dungeon");
-    Map map("map.txt", 32);
+    Map* map = new Map("map.txt", 32);
 
     sf::RectangleShape playerRect(sf::Vector2f(32, 32));
     playerRect.setFillColor(sf::Color::Green);
-    sf::RectangleShape swordRect(sf::Vector2f(32, 5));
-    swordRect.rotate(-90);
     sf::RectangleShape enemyRect(sf::Vector2f(32, 32));
     enemyRect.setFillColor(sf::Color::Red);
     sf::RectangleShape itemRect(sf::Vector2f(32, 32));
@@ -50,7 +48,7 @@ int main() {
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 300), 3.0f));
     enemies.push_back(new Enemy(enemyRect, sf::Vector2f(700, 400), 3.0f));
     Enemy* chaser = new Enemy(enemyRect, sf::Vector2f(300, 200), 1.0f);
-    Player* player = new Player(100, playerRect, swordRect, sf::Vector2f(200, 300), 300.0f);
+    Player* player = new Player(100, playerRect, sf::Vector2f(200, 300), 300.0f, 0.0f, 0.0f);
     Item* speedPotion = new Item(itemRect, sf::Vector2f(200, 200), "speedPotion");
 
     float speed = 2.0f;
@@ -90,8 +88,34 @@ int main() {
                 }
             }
         }
+        sf::Vector2f movement(player->dx, player->dy);
+        sf::FloatRect nextPosition = player->playerRect.getGlobalBounds();
+        nextPosition.left += movement.x;
+        nextPosition.top += movement.y;
+        CollisionDirection collision = map->getCollisionDirection(nextPosition);
 
-        player->update(keyStates, window, deltaTime, speedPotionEffect);
+        if (collision == CollisionDirection::None) {
+            player->update(keyStates, window, deltaTime, speedPotionEffect);
+        }
+        else {
+            // Gérer la collision
+            if (collision == CollisionDirection::Right) {
+                player->playerRect.move(-50, 0);
+                player->pos.x -= 50;
+            }
+            else if (collision == CollisionDirection::Left) {
+                player->playerRect.move(50, 0);
+                player->pos.x += 50;
+            }
+            else if (collision == CollisionDirection::Top) {
+                player->playerRect.move(0, 50);
+                player->pos.y += 50;
+            }
+            else if (collision == CollisionDirection::Bottom) {
+                player->playerRect.move(0, -50);
+                player->pos.y -= 50;
+            }
+        }
 
         for (auto& enemy : enemies) {
             /*enemy->move(window);*/
@@ -106,14 +130,15 @@ int main() {
 
         }
 
-        chaser->ChaserEnemyPattern(player->pos.x, player->pos.y);
+        /*chaser->ChaserEnemyPattern(player->pos.x, player->pos.y);*/
         player->draw(window);
         chaser->draw(window);
-        map.draw(window);
+        map->draw(window);
         if (speedPotion != nullptr) {
             speedPotion->draw(window);
         }
         window.display();
+        std::cout << player->pos.x << " " << player->pos.y << std::endl;
     }
     for (auto& enemy : enemies) {
         delete enemy;
@@ -121,6 +146,7 @@ int main() {
     delete chaser;
     delete speedPotion;
     delete player;
+    delete map;
     return 0;
 }
 

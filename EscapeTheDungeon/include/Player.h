@@ -11,13 +11,12 @@ class Player : public Entity {
 public:
     int hp;
     sf::RectangleShape playerRect;
-    sf::RectangleShape swordRect;
     sf::Vector2f pos;
     float speed;
-    float strikeCooldown;
-    float timeSinceLastStrike;
+    float dx;
+    float dy;
 
-    Player(int hp, sf::RectangleShape pR, sf::RectangleShape sR,  sf::Vector2f p, float s);
+    Player(int hp, sf::RectangleShape pR, sf::Vector2f p, float s, float dx, float dy);
     ~Player();
 
     void updateTemp(float deltaTime) override;
