@@ -36,22 +36,31 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Escape The Dungeon");
     Map* room1 = new Map("room1.txt", 32);              // Room 1 normal
     Map* room1open = new Map("room1open.txt", 32);      // Room 1 mais avec le côté gauche ouvert pour aller à la fin du jeu
+    Map* roomend = new Map("roomend.txt", 32);
+
+    sf::Texture enemyTexture;
+    if (!enemyTexture.loadFromFile("enemy.png")) {
+        return -1;
+    }
+    sf::Sprite enemySprite;
+    enemySprite.setTexture(enemyTexture);
+    sf::Sprite chaserSprite;
+    chaserSprite.setTexture(enemyTexture);
+    chaserSprite.setColor(sf::Color(255, 0, 0));
 
     sf::RectangleShape playerRect(sf::Vector2f(32, 32));
     playerRect.setFillColor(sf::Color::Green);
-    sf::RectangleShape enemyRect(sf::Vector2f(32, 32));
-    enemyRect.setFillColor(sf::Color::Red);
     sf::RectangleShape speedPotionRect(sf::Vector2f(32, 32));
     speedPotionRect.setFillColor(sf::Color::Blue);
     sf::RectangleShape keyRect(sf::Vector2f(32, 32));
     keyRect.setFillColor(sf::Color::Magenta);
 
     std::vector<Enemy*> enemies;
-    enemies.push_back(new Enemy(enemyRect, sf::Vector2f(864, 604), 3.0f, -0.1f, 0.0f));
-    enemies.push_back(new Enemy(enemyRect, sf::Vector2f(128, 668), 3.0f, 0.1f, 0.0f));
-    enemies.push_back(new Enemy(enemyRect, sf::Vector2f(128, 64), 3.0f, 0.1f, 0.0f));
-    enemies.push_back(new Enemy(enemyRect, sf::Vector2f(864, 128), 3.0f, -0.1f, 0.0f));
-    Enemy* chaser = new Enemy(enemyRect, sf::Vector2f(300, 200), 1.0f, 0.0f, 0.0f);
+    enemies.push_back(new Enemy(enemySprite, sf::Vector2f(864, 604), 3.0f, -0.1f, 0.0f));
+    enemies.push_back(new Enemy(enemySprite, sf::Vector2f(128, 668), 3.0f, 0.1f, 0.0f));
+    enemies.push_back(new Enemy(enemySprite, sf::Vector2f(128, 64), 3.0f, 0.1f, 0.0f));
+    enemies.push_back(new Enemy(enemySprite, sf::Vector2f(864, 128), 3.0f, -0.1f, 0.0f));
+    Enemy* chaser = new Enemy(chaserSprite, sf::Vector2f(896, 288), 1.0f, 0.0f, 0.0f);
     Player* player = new Player(100, playerRect, sf::Vector2f(96, 288), 300.0f, 0.0f, 0.0f);
     Item* speedPotion = new Item(speedPotionRect, sf::Vector2f(96, 352), "speedPotion");
     Item* key1 = new Item(keyRect, sf::Vector2f(64, 636), "key1");
@@ -62,7 +71,7 @@ int main() {
 
     bool speedPotionEffect = false;
     bool key1Collected = false;
-    bool key2collected = false;
+    bool key2Collected = false;
     int room = 1;
 
     while (window.isOpen()) {
@@ -82,8 +91,6 @@ int main() {
         }
 
         if (room == 1) {
-            /*player->checkColEnemy(chaser->enemyRect);*/
-
             if (player->hp <= 0) {
                 std::cout << "GAME OVER";
                 return 0;
@@ -111,7 +118,7 @@ int main() {
 
             if (key2 != nullptr) {
                 if (player->checkColItem(key2->itemRect)) {
-                    key2collected = true;
+                    key2Collected = true;
                     if (key2) {
                         delete key2;
                         key2 = nullptr;
@@ -134,22 +141,18 @@ int main() {
                 case CollisionDirection::Right:
                     player->playerRect.move(-32, 0);
                     player->pos.x -= 32;
-                    std::cout << "Droite\n";;
                     break;
                 case CollisionDirection::Left:
                     player->playerRect.move(32, 0);
                     player->pos.x += 32;
-                    std::cout << "Gauche\n";
                     break;
                 case CollisionDirection::Top:
                     player->playerRect.move(0, 32);
                     player->pos.y += 32;
-                    std::cout << "Haut\n";
                     break;
                 case CollisionDirection::Bottom:
                     player->playerRect.move(0, -32);
                     player->pos.y -= 32;
-                    std::cout << "Bas\n";
                     break;
                 default:
                     break;
@@ -158,7 +161,7 @@ int main() {
 
             for (auto& enemy : enemies) {
                 sf::Vector2f movement(enemy->dx, enemy->dy);
-                sf::FloatRect nextPosition = enemy->enemyRect.getGlobalBounds();
+                sf::FloatRect nextPosition = enemy->enemySprite.getGlobalBounds();
                 nextPosition.left += movement.x;
                 nextPosition.top += movement.y;
                 CollisionDirection collision = room1->getCollisionDirection(nextPosition);
@@ -178,21 +181,51 @@ int main() {
                     }
                 }
                 enemy->draw(window);
-                if (player->checkColEnemy(enemy->enemyRect, player->hp, player->playerRect)) {
+
+                if (player->checkColEnemy(chaser->enemySprite, player->hp, player->playerRect)) {
                     std::cout << "Le joueur a ";
                     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0x04);
                     std::cout << player->hp;
                     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0x07);
                     std::cout << " de points de vie\n";
                     player->playerRect.setPosition(96, 288);
+                    player->pos.x = 96;
+                    player->pos.y = 288;
+                    chaser->enemySprite.setPosition(896, 288);
+                }
+                if (player->checkColEnemy(enemy->enemySprite, player->hp, player->playerRect)) {
+                    std::cout << "Le joueur a ";
+                    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0x04);
+                    std::cout << player->hp;
+                    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0x07);
+                    std::cout << " de points de vie\n";
+                    player->playerRect.setPosition(96, 288);
+                    player->pos.x = 96;
+                    player->pos.y = 288;
+                    chaser->enemySprite.setPosition(896, 288);
                 }
 
+                if (key1Collected && key2Collected) {
+                    if (player->playerRect.getPosition().x >= 950) {
+                        if (player->playerRect.getPosition().y >= 350 && player->playerRect.getPosition().y <= 450) {
+                            room = 2;
+                            player->playerRect.setPosition(96, 288);
+                            player->pos.x = 96;
+                            player->pos.y = 288;
+                            sf::sleep(sf::seconds(1));
+                        }
+                    }
+                }
             }
-
-            /*chaser->ChaserEnemyPattern(player->pos.x, player->pos.y);*/
-
-            //std::cout << player->pos.x << " " << player->pos.y << std::endl;
+            chaser->ChaserEnemyPattern(player->pos.x, player->pos.y);
         }
+
+        else if (room == 2) {
+            std::cout << "You Win !\n";
+            sf::sleep(sf::seconds(2));
+            window.close();
+        }
+
         player->draw(window);
         chaser->draw(window);
         if (speedPotion != nullptr) {
@@ -204,11 +237,14 @@ int main() {
         if (key2 != nullptr) {
             key2->draw(window);
         }
-        if (!key1Collected && !key2collected) {
+        if (!key1Collected || !key2Collected) {
             room1->draw(window);
         }
-        else {
+        if ((key1Collected && key2Collected) && room == 1) {
             room1open->draw(window);
+        }
+        else if (room == 2) {
+            roomend->draw(window);
         }
         window.display();
     }

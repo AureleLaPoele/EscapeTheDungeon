@@ -22,7 +22,7 @@ public:
     void updateTemp(float deltaTime) override;
     void draw(sf::RenderWindow& window) override;
     void update(const std::unordered_map<sf::Keyboard::Key, bool>& keyStates, sf::RenderWindow& window, sf::Time& deltaTime, bool speedPotion);
-    bool checkColEnemy(sf::RectangleShape& enemyRect, int& hp, sf::RectangleShape& playerRect);
+    bool checkColEnemy(sf::Sprite& enemySprite, int& hp, sf::RectangleShape& playerRect);
     bool checkColItem(sf::RectangleShape& itemRect);
 
 };

@@ -57,13 +57,13 @@ void Player::draw(sf::RenderWindow& window) {
     window.draw(playerRect);
 }
 
-bool Player::checkColEnemy(sf::RectangleShape& enemyRect, int& hp, sf::RectangleShape& playerRect) {
-    if (playerRect.getGlobalBounds().intersects(enemyRect.getGlobalBounds())) {
+bool Player::checkColEnemy(sf::Sprite& enemySprite, int& hp, sf::RectangleShape& playerRect) {
+    if (playerRect.getGlobalBounds().intersects(enemySprite.getGlobalBounds())) {
         while (true) {
-            float distLeft = playerRect.getPosition().x + playerRect.getSize().x - enemyRect.getPosition().x;
-            float distRight = enemyRect.getPosition().x + enemyRect.getSize().x - playerRect.getPosition().x;
-            float distTop = playerRect.getPosition().y + playerRect.getSize().y - enemyRect.getPosition().y;
-            float distBottom = enemyRect.getPosition().y + enemyRect.getSize().y - playerRect.getPosition().y;
+            float distLeft = playerRect.getPosition().x + playerRect.getSize().x - enemySprite.getPosition().x;
+            float distRight = enemySprite.getPosition().x + 32 - playerRect.getPosition().x;
+            float distTop = playerRect.getPosition().y + playerRect.getSize().y - enemySprite.getPosition().y;
+            float distBottom = enemySprite.getPosition().y + 32 - playerRect.getPosition().y;
             if (distLeft < distRight && distLeft < distTop && distLeft < distBottom) {
                 playerRect.move(-32, 0);
             }

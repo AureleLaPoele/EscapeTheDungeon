@@ -8,13 +8,13 @@
 
 class Enemy : public Entity {
 public:
-    sf::RectangleShape enemyRect;
+    sf::Sprite enemySprite;
     sf::Vector2f pos;
     float speed;
     float dx;
     float dy;
 
-    Enemy(sf::RectangleShape pR, sf::Vector2f p, float s, float dx, float dy);
+    Enemy(sf::Sprite eS, sf::Vector2f p, float s, float dx, float dy);
     ~Enemy();
 
     void updateTemp(float deltaTime) override;
