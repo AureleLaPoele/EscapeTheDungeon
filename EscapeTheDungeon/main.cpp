@@ -102,18 +102,22 @@ int main() {
             if (collision == CollisionDirection::Right) {
                 player->playerRect.move(-50, 0);
                 player->pos.x -= 50;
+                std::cout << "Droite\n";
             }
             else if (collision == CollisionDirection::Left) {
                 player->playerRect.move(50, 0);
                 player->pos.x += 50;
+                std::cout << "Gauche\n";
             }
             else if (collision == CollisionDirection::Top) {
                 player->playerRect.move(0, 50);
                 player->pos.y += 50;
+                std::cout << "Haut\n";
             }
             else if (collision == CollisionDirection::Bottom) {
                 player->playerRect.move(0, -50);
                 player->pos.y -= 50;
+                std::cout << "Bas\n";
             }
         }
 
@@ -138,7 +142,7 @@ int main() {
             speedPotion->draw(window);
         }
         window.display();
-        std::cout << player->pos.x << " " << player->pos.y << std::endl;
+        //std::cout << player->pos.x << " " << player->pos.y << std::endl;
     }
     for (auto& enemy : enemies) {
         delete enemy;
