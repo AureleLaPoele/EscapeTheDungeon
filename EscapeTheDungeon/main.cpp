@@ -1,8 +1,12 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <fstream>
 #include <unordered_map>
 #include <vector>
+#include <string>
+#include <stdexcept>
 #include <Windows.h>
+#include "src/Map.cpp"
 #include "include/Player.h"
 #include "include/Enemy.h"
 #include "include/Item.h"
@@ -30,14 +34,15 @@ int main() {
     WORD oldAttr = GetTextAttribute();
 
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Escape The Dungeon");
+    Map map("map.txt", 32);
 
-    sf::RectangleShape playerRect(sf::Vector2f(50, 50));
+    sf::RectangleShape playerRect(sf::Vector2f(32, 32));
     playerRect.setFillColor(sf::Color::Green);
-    sf::RectangleShape swordRect(sf::Vector2f(50, 5));
+    sf::RectangleShape swordRect(sf::Vector2f(32, 5));
     swordRect.rotate(-90);
-    sf::RectangleShape enemyRect(sf::Vector2f(50, 50));
+    sf::RectangleShape enemyRect(sf::Vector2f(32, 32));
     enemyRect.setFillColor(sf::Color::Red);
-    sf::RectangleShape itemRect(sf::Vector2f(50, 50));
+    sf::RectangleShape itemRect(sf::Vector2f(32, 32));
     itemRect.setFillColor(sf::Color::Blue);
 
     std::vector<Enemy*> enemies;
@@ -104,6 +109,7 @@ int main() {
         chaser->ChaserEnemyPattern(player->pos.x, player->pos.y);
         player->draw(window);
         chaser->draw(window);
+        map.draw(window);
         if (speedPotion != nullptr) {
             speedPotion->draw(window);
         }

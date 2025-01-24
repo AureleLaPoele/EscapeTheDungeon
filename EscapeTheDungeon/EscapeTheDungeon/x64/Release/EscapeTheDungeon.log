@@ -1,6 +1,54 @@
-﻿  Player.cpp
+﻿  main.cpp
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(35,56): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(35,56): warning C4244:         with
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(35,56): warning C4244:         [
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(35,56): warning C4244:             T=float
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(35,56): warning C4244:         ]
+  (compiler le fichier source 'main.cpp')
+  
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(35,46): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(35,46): warning C4244:         with
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(35,46): warning C4244:         [
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(35,46): warning C4244:             T=float
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(35,46): warning C4244:         ]
+  (compiler le fichier source 'main.cpp')
+  
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(41,54): warning C4244: 'argument' : conversion de 'size_t' en 'float', perte possible de données
+  (compiler le fichier source 'main.cpp')
+  
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(41,40): warning C4244: 'argument' : conversion de 'size_t' en 'float', perte possible de données
+  (compiler le fichier source 'main.cpp')
+  
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(49,22): warning C4244: 'initialisation' : conversion de 'T' en 'int', perte possible de données
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(49,22): warning C4244:         with
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(49,22): warning C4244:         [
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(49,22): warning C4244:             T=float
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(49,22): warning C4244:         ]
+  (compiler le fichier source 'main.cpp')
+  
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(50,23): warning C4244: 'initialisation' : conversion de 'T' en 'int', perte possible de données
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(50,23): warning C4244:         with
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(50,23): warning C4244:         [
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(50,23): warning C4244:             T=float
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(50,23): warning C4244:         ]
+  (compiler le fichier source 'main.cpp')
+  
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(51,21): warning C4244: 'initialisation' : conversion de 'T' en 'int', perte possible de données
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(51,21): warning C4244:         with
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(51,21): warning C4244:         [
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(51,21): warning C4244:             T=float
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(51,21): warning C4244:         ]
+  (compiler le fichier source 'main.cpp')
+  
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(52,24): warning C4244: 'initialisation' : conversion de 'T' en 'int', perte possible de données
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(52,24): warning C4244:         with
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(52,24): warning C4244:         [
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(52,24): warning C4244:             T=float
+C:\Users\agodin\Documents\GitHub\EscapeTheDungeon\EscapeTheDungeon\src\Map.cpp(52,24): warning C4244:         ]
+  (compiler le fichier source 'main.cpp')
+  
   Génération de code en cours
-  2 of 334 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+  1 of 542 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
