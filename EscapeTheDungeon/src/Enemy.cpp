@@ -1,7 +1,7 @@
 #include "../include/Enemy.h"
 
-Enemy::Enemy(sf::RectangleShape pR, sf::Vector2f p, float s)
-    : enemyRect(pR), pos(p), speed(s) {
+Enemy::Enemy(sf::RectangleShape pR, sf::Vector2f p, float s, float dx, float dy)
+    : enemyRect(pR), pos(p), speed(s), dx(dx), dy(dy) {
     enemyRect.setPosition(pos.x, pos.y);
 }
 
@@ -18,8 +18,6 @@ void Enemy::draw(sf::RenderWindow& window) {
 }
 
 void Enemy::ChaserEnemyPattern(float posx, float posy) {
-    float dx = 0.0f;
-    float dy = 0.0f;
     float speed = 0.01f;
     if (posx <= enemyRect.getPosition().x) {
         dx = -speed;
@@ -41,7 +39,6 @@ void Enemy::PatrollingEnemyPattern(const sf::RenderWindow& window) {
 }
 
 void Enemy::move(const sf::RenderWindow& window) {
-    float dx = -0.01f, dy = 0.0f;
 
     if (dx != 0 && dy != 0) {
         dx *= 0.7071f;

@@ -11,8 +11,10 @@ public:
     sf::RectangleShape enemyRect;
     sf::Vector2f pos;
     float speed;
+    float dx;
+    float dy;
 
-    Enemy(sf::RectangleShape pR, sf::Vector2f p, float s);
+    Enemy(sf::RectangleShape pR, sf::Vector2f p, float s, float dx, float dy);
     ~Enemy();
 
     void updateTemp(float deltaTime) override;

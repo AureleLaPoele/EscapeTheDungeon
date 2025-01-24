@@ -65,16 +65,16 @@ bool Player::checkColEnemy(sf::RectangleShape& enemyRect, int& hp, sf::Rectangle
             float distTop = playerRect.getPosition().y + playerRect.getSize().y - enemyRect.getPosition().y;
             float distBottom = enemyRect.getPosition().y + enemyRect.getSize().y - playerRect.getPosition().y;
             if (distLeft < distRight && distLeft < distTop && distLeft < distBottom) {
-                playerRect.move(-100, 0);
+                playerRect.move(-32, 0);
             }
             else if (distRight < distLeft && distRight < distTop && distRight < distBottom) {
-                playerRect.move(100, 0);
+                playerRect.move(32, 0);
             }
             else if (distTop < distLeft && distTop < distRight && distTop < distBottom) {
-                playerRect.move(0, -100);
+                playerRect.move(0, -32);
             }
             else if (distBottom < distLeft && distBottom < distRight && distBottom < distTop) {
-                playerRect.move(0, 100);
+                playerRect.move(0, 32);
             }
             break;
         }
